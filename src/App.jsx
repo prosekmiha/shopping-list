@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import { Route, Routes } from 'react-router';
-import { useNavigate } from 'react-router-dom';
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../src/firebase"
 import ShoppingList from './pages/ShoppingList'
@@ -15,11 +14,9 @@ function App() {
 
   const [items, setItems] = useState([]);
 
-  const navigate = useNavigate();
 
   useEffect(() => {
     fetchData();
-    navigate("/");
   }, [])
 
   const fetchData = async () => {
