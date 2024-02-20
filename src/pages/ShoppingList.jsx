@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 
 import { collection, doc, deleteDoc, getDocs } from "firebase/firestore"; 
@@ -11,6 +11,9 @@ import ItemsList from '../components/ItemsList';
 
 const ShoppingList = ({ items, setItems, fetchData, user, setUser }) => {
 
+  useEffect(() => {
+    fetchData();
+  }, [])
 
   const navigate = useNavigate();
 
